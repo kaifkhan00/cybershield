@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield Security | Professional Cybersecurity Solutions</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00ffff, #0088ff);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #0088ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ccccff;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: #0f0f23;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #00ffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #1a1a3a 0%, #252550 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #333366;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 136, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00ffff;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #ccccff;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: #0a0a1a;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #00ffff;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #ccccff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a3a 0%, #252550 100%);
+            border-radius: 10px;
+            border: 1px solid #333366;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ccccff;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: #0f0f23;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a3a 0%, #252550 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333366;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #333366;
+            border-radius: 5px;
+            background-color: #0a0a1a;
+            color: #ffffff;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a1a;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #333366;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccccff;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #00ffff;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #ccccff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00ffff;
+        }
+
+        .copyright {
+            color: #ccccff;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Effects */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animated {
+            animation: pulse 2s infinite;
+        }
+
+        /* Terminal Effect */
+        .terminal {
+            background-color: #000;
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #00ff00;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            color: #00ff00;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-content {
+            color: #00ff00;
+            line-height: 1.8;
+        }
+
+        .blinking-cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">CyberShield</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Advanced Cybersecurity Solutions</h1>
+            <p>Protecting your digital assets with cutting-edge security protocols and expert vulnerability assessment</p>
+            <button class="cta-button animated">Secure Your Systems</button>
+            
+            <div class="terminal">
+                <div class="terminal-header">security@cybershield:~$ running system scan</div>
+                <div class="terminal-content">
+                    > Initializing security protocols...<br>
+                    > Scanning for vulnerabilities...<br>
+                    > Firewall status: <span style="color: #00ff00;">ACTIVE</span><br>
+                    > Threat detection: <span style="color: #00ff00;">ENABLED</span><br>
+                    > System protection: <span style="color: #00ff00;">OPTIMAL</span><br>
+                    > Ready for security assessment<span class="blinking-cursor">_</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Comprehensive security analysis to identify and mitigate potential vulnerabilities in your systems.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Penetration Testing</h3>
+                    <p>Ethical hacking services to test your defenses and identify security weaknesses before attackers do.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Security Consulting</h3>
+                    <p>Expert guidance on security best practices, compliance, and risk management strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Incident Response</h3>
+                    <p>24/7 emergency response team ready to handle security breaches and minimize damage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Expert Security Solutions</h2>
+                    <p>With years of experience in cybersecurity, our team of experts provides top-tier protection for businesses of all sizes. We stay ahead of emerging threats to keep your systems secure.</p>
+                    <p>Our proactive approach ensures that potential vulnerabilities are identified and addressed before they can be exploited by malicious actors.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Systems Secured</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime Guarantee</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Monitoring</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Security Experts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us about your security needs"></textarea>
+                </div>
+                <button class="cta-button">Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CyberShield Security</h3>
+                    <p>Advanced cybersecurity solutions for modern businesses.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#services">Services</a></p>
+                    <p><a href="#about">About</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: security@cybershield.com</p>
+                    <p>Phone: +1 (555) 123-SECURE</p>
+                    <p>Address: 123 Security Lane, Cyber City</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#">📘</a>
+                <a href="#">📱</a>
+                <a href="#">💼</a>
+                <a href="#">📸</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CyberShield Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animated counter for statistics
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / duration;
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + '+';
+                }
+            }, 20);
+        }
+
+        // Intersection Observer for animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stat-number')) {
+                        const target = parseInt(entry.target.textContent);
+                        animateCounter(entry.target, target, 50);
+                    }
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe statistic elements
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            observer.observe(stat);
+        });
+
+        // Form submission handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! Our security team will contact you shortly.');
+            this.reset();
+        });
+
+        // Terminal typing effect
+        function typeTerminalText() {
+            const lines = [
+                "> Initializing security protocols...",
+                "> Scanning for vulnerabilities...", 
+                "> Firewall status: ACTIVE",
+                "> Threat detection: ENABLED",
+                "> System protection: OPTIMAL",
+                "> Ready for security assessment"
+            ];
+            
+            const terminal = document.querySelector('.terminal-content');
+            let currentLine = 0;
+            let currentChar = 0;
+            
+            function type() {
+                if (currentLine < lines.length) {
+                    if (currentChar === 0) {
+                        terminal.innerHTML = '';
+                    }
+                    
+                    if (currentChar < lines[currentLine].length) {
+                        terminal.innerHTML += lines[currentLine].charAt(currentChar);
+                        currentChar++;
+                        setTimeout(type, 50);
+                    } else {
+                        terminal.innerHTML += '<br>';
+                        currentLine++;
+                        currentChar = 0;
+                        setTimeout(type, 200);
+                    }
+                } else {
+                    terminal.innerHTML += '<span class="blinking-cursor">_</span>';
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize terminal effect
+        typeTerminalText();
+    </script>
+</body>
+</html>
