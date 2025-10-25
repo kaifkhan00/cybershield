@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberShield Security | Professional Cybersecurity Solutions</title>
     <style>
+
+          /* Loading screen styles (ADDED) */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        #loading .shield { font-size: 4rem; margin-bottom: 16px; animation: pulse 2s infinite; }
+        #loading .typing { font-size: 1.25rem; border-right: 2px solid #00ff00; padding-right: 8px; white-space: nowrap; overflow: hidden; }
+        #loading .matrix-bg {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text fill="%2300ff00" font-size="10" x="10" y="20">010101</text><text fill="%2300ff00" font-size="10" x="30" y="40">101010</text><text fill="%2300ff00" font-size="10" x="50" y="60">011011</text></svg>') repeat;
+            opacity: 0.08; z-index: -1;
+        }
+
         /* Global Styles */
         * {
             margin: 0;
@@ -358,7 +384,15 @@
     </style>
 </head>
 <body>
+    <!-- Loading overlay (ADDED) -->
+    <div id="loading">
+        <div class="matrix-bg"></div>
+        <div class="shield">🛡️</div>
+        <div class="typing" id="typing-text">Initializing CyberShield...</div>
+    </div>
+
     <!-- Header -->
+    <!-- ...existing code... -->
     <header>
         <div class="container">
             <nav>
@@ -513,6 +547,36 @@
     </footer>
 
     <script>
+
+        // ...existing code...
+  
+        // ...existing code (all existing JS: smooth scroll, counters, observer, form handler, terminal functions) ...
+
+        // Replace the previous direct call to start terminal with a loading-typewriter that hides overlay then starts terminal
+        (function initLoadingAndThenTerminal() {
+            const text = "Initializing CyberShield... Access Granted.";
+            let idx = 0;
+            const el = document.getElementById('typing-text');
+            // clear default text if any
+            el.textContent = '';
+            function typeWriter() {
+                if (idx < text.length) {
+                    el.textContent += text.charAt(idx);
+                    idx++;
+                    setTimeout(typeWriter, 60); // typing speed
+                } else {
+                    // keep loading visible a bit, then hide and start terminal typing
+                    setTimeout(() => {
+                        const loading = document.getElementById('loading');
+                        if (loading) loading.style.display = 'none';
+                        // start the terminal effect defined earlier
+                        if (typeof typeTerminalText === 'function') typeTerminalText();
+                    }, 800);
+                }
+            }
+            // start typing after window load so other assets are ready
+            window.addEventListener('load', typeWriter);
+        })();
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
